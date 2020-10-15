@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="This is Greg Chance's jQuery Functions Project">
+    <title>gChance jQuery Functions</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+    .navbar-nav img {
+        width: 30px;
+    }
+    body * {
+        outline: 1px solid white;
+    }
+    .hidden {
+        visibility: hidden;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h4 class="text-center text-light bg-dark">Is this working</h4>
+        <!-- <nav class="navbar navbar-dark bg-dark">
+            <div class="navbar-nav">
+                <a class="navbar-link" href="">
+                    <img class ="nav-item" src="img/arrow-left.png" alt="">
+                </a>
+                <a class="navbar-link" href="">
+                    <img class ="nav-item" src="img/arrow-right.png" alt="">
+                </a>
+            </div>
+        </nav> -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  
+                      <img src="img/arrow-left.png" alt="">
+                  
+                </li>
+                <li class="nav-item">
+                  
+                    <img src="img/arrow-right.png" alt="">
+
+                </li>
+                <li class="nav-item">
+                  
+                    <img src="img/redx.png" alt="">
+
+                </li>
+                <li class="nav-item">
+                  
+                    <img src="img/home.png" alt="">
+
+                </li>
+                <input class="navbar-item" type="text">
+              </ul>
+              <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+              </form>
+            </div>
+          </nav>
+          <div class="row">
+            <div class="col-2 text-center">
+                <button class="btn1 btn btn-primary">Stuff</button>
+            </div>
+            <div class="col">
+                <h2>More Stuff</h2>
+                <p class="p1">Click the button to add red to this paragraph</p>
+            </div>
+        </div>
+        <hr>
+          <div class="row">
+            <div class="col-2 text-center">
+                <button class="btn2 btn btn-primary">Stuff</button>
+            </div>
+            <div class="col">
+                <h2>More Stuff</h2>
+                <p class="p2">Click the button to add red to this paragraph</p>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-2 text-center">
+                <button class="btn3 btn-primary">Stuff</button>
+            </div>
+            <div class="col">
+                <h2>More Stuff</h2>
+                <p class="p3">Click the button to add red to this paragraph</p>
+            </div>
+            <select name="" id="foofer">
+                <option value="Hi1">Hi</option>
+                <option value="Hi2">Hi</option>
+            </select>
+        </div>
+    </div>
+
+    <script>
+            $(".btn1").click(function() {
+                $(".p1").css("color", "red");
+                // $(".p1").css("color: red");
+            })
+            $("p").click(function() {
+                $(this).hide();
+            })
+
+            $(".navbar-brand").click(function() {
+                $("p").show();
+            })
+
+            $(".btn1").click(function() {
+                $("img").toggle();
+            })
+            var blah = $(".p2").hide;
+            $(".btn2").click(function () {
+                $(".p2").slideToggle();
+            })
+            var blah = $(".p2").hide;
+            $(".btn3").click(function () {
+                $(".p3").fadeToggle();
+            })
+            $("h2").hover(
+                function() {
+                $(".navbar form").addClass("hidden");
+                },
+                function() {
+                $(".navbar form").removeClass("hidden");
+                } 
+            )
+            $("img").click(function() {
+                $("h2").append("Creme Fraiche")
+                $("h2").prepend("Creme Fraiche")
+                $("h2").after("Creme Fraiche")
+                $("h2").before("Creme Fraiche")
+            })
+            var poop = $(".p1").text();
+            $("h2").hover(
+                function() {
+                    console.log(poop);
+                    $("p").html("<b>"+poop+"</b>");
+            },  function() {
+                    $("p").html(poop);
+            }
+            )
+            $("img").click(function () {
+                if($(this).attr("src").includes("redx")) {
+                    $(this).attr("src", "img/home.png");
+                }                   
+                else { 
+                    $(this).attr("src", "img/redx.png");
+                }    
+            })
+            $("button").click(function() {
+                console.log($("#foofer").val());
+            })
+    </script>
+
+</body>
+</html>

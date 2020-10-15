@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        img {
+            display: block;
+            padding: 2px ;
+        }
+    </style>
+</head>
+<body>
+    <img src="img/cat0.png" alt="">
+    <img src="img/cat1.png" alt="">
+    <img src="img/ninja2.png" alt="">
+    <img src="img/ninja3.png" alt="">
+    <img src="img/ninja4.png" alt="">
+
+    <script>
+        $("img").click(function() {
+            var string = $(this).attr("src");
+            var number = string[string.length-5];
+            var myBool = string.includes("cat");
+            if(myBool == true) {
+                $(this).attr("src", "img/ninja" + number + ".png")
+            }
+            else {
+                $(this).attr("src", "img/cat" + number + ".png")
+            }
+        })
+    </script>
+
+</body>
+</html>

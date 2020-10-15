@@ -1,0 +1,145 @@
+<html>
+    <style>
+        .ninjaman {
+            background-color: black;
+            background-image: url("img/ninja.gif");
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+        }
+        .row {
+            background-color: blue;
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+        }
+        .wall {
+            background-color: blue;
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+        }
+        .blank {
+            background-color: green;
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+        }
+        .sushi {
+            background-color: black;
+            background-image: url("img/sushi.png");
+            background-size: contain;
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+        }
+    </style>
+    <body>
+        <div id="world">
+        </div>
+        <script>
+            var x = [
+                [3,1,1,1,1],
+                [1,1,1,2,1],
+                [1,1,2,1,1],
+                [2,2,1,1,1],
+                [1,2,1,2,1],
+            ];
+           var dict = {
+               0: "blank",
+               1: "wall",
+               2: "sushi",
+               3: "ninjaman",
+        }  
+            
+
+function drawworld() {
+    var output = "";
+for(var i=0;i<x.length;i++) {
+    output += "<div class='row'>";
+    for (var pos=0;pos<x[i].length;pos++) {
+        output += "<div class = '"+dict[x[i][pos]]+"' ></div>";
+        }
+    output += "</div>";
+}
+document.getElementById("world").innerHTML = output;
+} 
+
+drawworld();
+
+            document.onkeydown = function(e) {
+    console.log(e);
+    if(e.keyCode == 40) {
+        for(var i=0;i<x.length;i++) {
+            for (var pos=4;pos>=0;pos--) {
+                if(x[i][pos] == 3 && pos<x[i].length-1) {
+                    var temp = x[i][pos+1]
+                    x[i][pos+1] = x[i][pos]
+                    x[i][pos] = temp
+                    
+                }
+            }
+        }
+    }
+    if(e.keyCode == 38) {
+        for(var i=0;i<x.length;i++) {
+            for (var pos=0;pos<x[i].length;pos++) {
+                if(x[i][pos] == 3 && pos>0) {
+                    
+                    var temp = x[i][pos-1]
+                    x[i][pos-1] = x[i][pos]
+                    x[i][pos] = temp
+                    
+                }
+            }
+        }
+    }
+    if(e.keyCode == 39) {
+        for(var i=4;i>=0;i--) {
+            for (var pos=0;pos<x[i].length;pos++) {
+                if(x[i][pos] == 3 && i<x.length-1) {
+                    console.log(i,pos)
+                    var temp = x[i+1][pos]
+                    x[i+1][pos] = x[i][pos]
+                    x[i][pos] = temp
+                    ;
+                }
+            }
+        }
+    }
+    if(e.keyCode == 37) {
+        for(var i=0;i<x.length;i++) {
+            for (var pos=4;pos>=0;pos--) {
+                if(x[i][pos] == 3 && i>0) {
+                    console.log(i,pos)
+                    var temp = x[i-1][pos]
+                    x[i-1][pos] = x[i][pos]
+                    x[i][pos] = temp
+                    ;
+                }
+            }
+        }
+    }
+drawworld();
+console.log(x);
+} 
+
+function stuff2() {
+
+var output2 = "";
+
+    for(var i=0;i<x.length;i++) {
+                for (var pos=0;pos<x[i].length;pos++) {
+                    output2 += "<div class = '"+dict[x[i][pos]]+"' ></div>";
+                }
+            }
+            document.getElementsByClassName("row").innerHTML = output2
+}
+  
+
+
+
+console.log(x);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+1. select countries.name, languages.language, languages.percentage
+from countries
+join languages on countries.id = languages.country_id
+where languages.language = "slovene"
+order by languages.percentage desc
+
+2. select countries.name, count(cities.name) as "cities_count"
+from countries
+join cities on countries.id = cities.country_id
+group by countries.id
+
+3. select cities.name, cities.population, countries.name
+from cities
+join countries on countries.id = cities.country_id
+where countries.name = "mexico" AND cities.population > 500000
+
+4. select languages.language, languages.percentage, countries.name
+from countries
+join languages on countries.id = languages.country_id
+where languages.percentage > 89
+order by languages.percentage desc
+
+5. select name, surface_area, population
+from countries
+where surface_area < 501 AND population > 100000
+
+6. select name, government_form, capital, life_expectancy
+from countries
+where government_form = "constitutional monarchy"
+and
+capital > 200
+and
+life_expectancy > 75
+
+7. select name, district, population
+from cities
+where district = "buenos aires" and population > 500000
+
+8. select count(name), region
+from countries
+group by region
+order by region desc

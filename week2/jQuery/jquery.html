@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        .greg {
+            color: green;
+        }
+        .addition {
+            color: red;
+        }
+        .hidden {
+            visibility: hidden;
+        }
+        .p1 {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    
+    <button class="btn1">Show All</button>
+    <p style="color: blue">Sample</p>
+    <p>Sample</p>
+    <p class="greg">Sample</p>
+    <p>Sample</p>
+    <p>Sample</p>
+    <p class="spit"></p>
+    <p class="p1">Hello</p>
+    <!-- <p class="fake-button">Creme Fraiche</p>
+    <p class="block">Block</p>
+    <h1> -->
+    <!-- <button id="add">Add</button>
+    <button id="remove">Remove</button> -->
+    <!-- </h1>
+    <p id="poop">Poop</p> -->
+    <!-- <p class="greg">Greg's Text</p> -->
+
+    <script>
+                $(".btn1").click(function() {
+                console.log($(".p1").css("color", "red"));
+                // $(".p1").css("color: red");
+            })
+        // $("p").click(function() {
+        //     var poop = $(this).css("color");
+        //     $(".spit").html("That Value is the color: <span style= 'color:" + poop + ";'>" +poop + "</span>")
+        // })
+        // $("button").click(function() {
+        //     $("p").removeClass("greg");
+        // })
+        // var fart = $(".greg").text();
+        // console.log($("p").text());
+        // $("p").hover(
+        //     function() {
+        //         $(this).text("pretty sweet I guess");
+        //     }, 
+        //     function() {
+        //         $(this).text(fart);
+        //     },
+        // )
+
+        // $("p").click(function() {
+        //     $(this).addClass("hidden")
+        // })
+
+        // $("button").click(function() {
+        //     $("p").removeClass("hidden")
+        // })
+        // .click
+
+        
+        
+        // var myBool = false;
+        // document.getElementById("poop");
+        // console.log(document.getElementById("poop"), "vaniila js");
+        // $('p');
+        // $('.block');
+        
+        // console.log($('#poop'), "jQuery");
+
+        // $('#add').click(function() {
+        //     $(".greg").addClass("addition") ;
+        // } ) ;
+        // $('#remove').click(function() {
+        //     $(".greg").removeClass("addition") ;
+            // if(myBool == false) {
+            //     $('#poop').hide() ;
+            //     myBool = true;
+            // }
+            // else {
+            //     $('#poop').show() ;
+            //     myBool = false;
+            // }
+        // } ) ;
+
+            // $("button").click(function() {
+            //     $(".greg").text("Greg was at Starbucks")
+            // }) ;
+
+    </script>
+
+</body>
+</html>

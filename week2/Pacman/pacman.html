@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>gChance Pacman</title>
+    <style type="text/css">
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+        body {
+            background-color: black;
+
+        }
+        div.row {
+            height: 20px;
+        }
+        div.row div {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+        }
+        div.brick {
+            background-color: blue;
+        }
+        div.empty {
+
+        }
+        div.coin {
+            background-image: url('./img/coin.gif');
+            background-size: cover;
+        }
+        div#pacman {
+            background: url("img/pacman.gif");
+            background-size: cover;
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 20px;
+            left: 20px;
+        }
+        h1 {
+            color: white;
+            display: inline-block;
+        }
+        #image img{
+            width: 100px;
+            margin: auto;
+            display: inline-block;
+            margin-left: 100px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div id="world"></div>
+        <div id="pacman"></div>
+    </div>
+    
+    <h1>Score:</h1>
+    <h1 id="testme"></h1>
+
+    <div id="image">
+        
+    </div>
+
+<script>
+
+var world = [
+    [2,2,2,2,2,2,2,2,2,2],
+    [2,0,1,1,1,1,1,1,1,2],
+    [2,1,2,1,1,1,0,0,1,2],
+    [2,1,2,1,1,1,1,0,1,2],
+    [2,1,1,2,1,1,1,1,1,2],
+    [2,1,1,2,2,2,1,1,1,2],
+    [2,1,1,2,1,1,1,1,1,2],
+    [2,1,1,1,1,1,1,1,1,2],
+    [2,2,2,2,2,2,2,2,2,2],
+];
+
+var pacman = {
+    top: 1,
+    left: 1,
+}
+
+function displayWorld() {
+    var output = '';
+
+    for(var i=0; i<world.length; i++) {
+        output += "\n<div class='row'>";
+        for(var j=0; j<world[i].length; j++) {
+            if(world[i][j] == 2)
+                output += "<div class='brick'></div>";
+            if(world[i][j] == 1)
+                output += "<div class='coin'></div>";
+            if(world[i][j] == 0)
+                output += "<div class='empty'></div>";
+        }
+        output += "\n</div>";
+    }
+    // console.log(output);
+    document.getElementById('world').innerHTML = output;
+}
+
+displayWorld();
+
+var score = 1;
+
+document.onkeydown = function(e) {
+    if(e.keyCode == 39) {
+        pacman.left += 1;
+        // console.log(pacman.left);
+        if(world[pacman.top][pacman.left] == 2) {
+            pacman.left -= 1;
+            // console.log(world[pacman.top][pacman.left]);
+            // console.log(pacman.left);
+            return;
+        }
+        document.getElementById('pacman').style.left = pacman.left*20+"px"
+    }
+    if(e.keyCode == 40) {
+        pacman.top += 1;
+        if(world[pacman.top][pacman.left] == 2) {
+            pacman.top -= 1;
+            return;
+        }
+        document.getElementById('pacman').style.top = pacman.top*20+"px"
+    }
+    if(e.keyCode == 37) {
+        pacman.left -= 1;
+        if(world[pacman.top][pacman.left] == 2) {
+            pacman.left += 1;
+            return;
+        }
+        document.getElementById('pacman').style.left = pacman.left*20+"px"
+    }
+    if(e.keyCode == 38) {
+        pacman.top -= 1;
+        if(world[pacman.top][pacman.left] == 2) {
+            pacman.top += 1;
+            return;
+        }
+        document.getElementById('pacman').style.top = pacman.top*20+"px"
+    }
+    if(world[pacman.top][pacman.left] == 1) {
+        world[pacman.top][pacman.left] = 0;
+        var scoreoutput = "isthisworky";
+        score *= 2;
+        if(score == 35184372088832) {
+            score = "creme fraiche"
+            document.getElementById('image').innerHTML = "<img src='img/randy.gif' alt=''>"
+        }
+        document.getElementById('testme').innerHTML = score;
+}
+    console.log(e.keyCode);
+    displayWorld();
+} 
+
+</script>
+
+</body>
+</html>

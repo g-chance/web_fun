@@ -1,0 +1,13 @@
+
+TERMINAL COMMANDS!
+
+Cd - change directory
+cd.. - up one folder
+Cd~ - to user directory
+Cd/ - to root directory
+Mv - move file/folder or change file/folder name
+Rm - remove file
+Rm -rd - remove directory
+Ls - list files
+Pwd - present working directory
+

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Greg's Pokemon Project at Coding Dojo">
+    <title>gChance Pokemon</title>
+    <style>
+        /* .hidden {
+            visibility: hidden;
+        } */
+        body * {
+            /* outline: 1px solid black; */
+            display: inline-block;
+            vertical-align: top;
+        }
+        .pokemon {
+            width: 1000px;
+        }
+        .info {
+            width: 200px;
+            min-height: 200px;
+            position: fixed;
+        }
+        h1 {
+            text-decoration: underline;
+            text-align: center;
+            display: block;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var str = "";
+            for (i = 1; i <= 151; i++) {
+                str += "<img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACoCAMAAABt9SM9AAAAA1BMVEX///+nxBvIAAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO8GxYgAAb0jQ/cAAAAASUVORK5CYII=' alt ='' class ='hidden' id='pic" + i + "'>";
+                
+            }
+            
+            $(".pokemon").html(str);
+            // $('button').click(function () {
+
+            
+                for(let i=1;i<=255;i++) {
+                    $.get("https://pokeapi.co/api/v2/pokemon/" + i, function(data) {
+                        $("#pic" +i).attr("src", data.sprites.front_default)
+                        $("#pic" +i).removeClass("hidden")
+                    })
+                }
+            // })
+            $("img").click(function () {
+                var id = $(this).attr("id").slice(3,);
+                $.get("https://pokeapi.co/api/v2/pokemon/" + id, function(poop) {
+                    console.log(poop);
+                    $(".info").html("<h1>" + poop.name + "</h1><br>")
+                    $(".info").append("<h2>Abilities:</h2><br>")
+
+                    for(i=0;i<poop.abilities.length;i++) {
+                        $(".info").append("<h3>" + poop.abilities[i].ability.name + "</h3><br>")
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <!-- <button>Click Me</button> -->
+    <div class="pokemon"></div>
+    <div class="info"></div>
+</body>
+</html>

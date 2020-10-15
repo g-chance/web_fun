@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 1000px;
+            margin: auto;
+        }
+        img {
+            width: 300px;
+        }
+        button {
+            margin-top: 20px;
+            margin-left: 420px;
+            width: 60px;
+            display: block;
+            background-color: red;
+            color: white;
+        }
+        .hidden {
+            visibility: hidden;
+        }
+        p {
+            text-align: center;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("p").click(function() {
+                $(this).css("background-color", "red");
+            })
+            $("img").click(function() {
+                $(this).addClass("hidden");
+            })
+            $("button").click(function() {
+                $("img").removeClass("hidden");
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="container">
+        <p>Stuff</p>
+        <p>Stuff</p>
+        <p>Stuff</p>
+        <img src="img/randy.gif" alt="">
+        <img src="img/randy.gif" alt="">
+        <img src="img/randy.gif" alt="">
+        <img src="img/randy.gif" alt="">
+        <img src="img/randy.gif" alt="">
+        <img src="img/randy.gif" alt="">
+        <img src="img/randy.gif" alt="">
+        <img src="img/randy.gif" alt="">
+        <img src="img/randy.gif" alt="">
+        <button>Restore</button>
+    </div>
+</body>
+</html>
